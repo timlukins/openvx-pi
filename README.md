@@ -2,7 +2,7 @@
 
 ![Raspberry edges](raspi_graspinghand.png)
 
-**_N.B. 26th March 2017 -  This article was written almost 2 years ago about April 2015. Thinks have moved on a bit with OpenVX - but not too much. So hopefully this is still mostly relevant. I may update this at somepoint..._**
+**_N.B. 26th March 2017 -  This article was written almost 2 years ago about April 2015. Things have moved on a bit with OpenVX - but not too much - so hopefully this is still mostly relevant. I may update it at somepoint..._**
 
 ### Introduction
 
@@ -18,7 +18,7 @@ For simplicity, we give instructions for compiling the OpenVX sample implementat
 
 The article assumes a basic familiarity with the Raspberry Pi command line and general operation, and it will help to understand programming `C` a bit. Plus, we are basing this on the assumption the reader has purchased and connected an official Raspberry Pi camera module. Using an alternative camera is possible - but will require locating and using an appropriate Video for Linux kernel module. Furthermore, these instructions should also be roughly compatible with other Debian based Linux distribution - so could be followed to perform installation on other such systems.
 	
-### Updating the Pi & Enabling the Camera Module
+### Updating the Pi and Enabling the Camera Module
 
 This article was written while using a Raspberry Pi 1 Model B+ with a Pi NoIR camera module attached (as per the image at the head of the article- with the lovely case provided by a [Grasping Hand](http://www.graspinghand.com)). On to this was performed a clear install of the latest version of Raspbian (wheezy-3.18). 
 
