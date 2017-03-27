@@ -2,7 +2,7 @@
 
 ![Raspberry edges](raspi_graspinghand.png)
 
-**_N.B. 26th March 2017 -  This artical was written almost 2 years ago about April 2015. Thinks have moved on a bit with OpenVX - but not too much. So hopefully this is still mostly relevant. I may update this at somepoint..._**
+**_N.B. 26th March 2017 -  This article was written almost 2 years ago about April 2015. Thinks have moved on a bit with OpenVX - but not too much. So hopefully this is still mostly relevant. I may update this at somepoint..._**
 
 ### Introduction
 
@@ -18,7 +18,6 @@ For simplicity, we give instructions for compiling the OpenVX sample implementat
 
 The article assumes a basic familiarity with the Raspberry Pi command line and general operation, and it will help to understand programming `C` a bit. Plus, we are basing this on the assumption the reader has purchased and connected an official Raspberry Pi camera module. Using an alternative camera is possible - but will require locating and using an appropriate Video for Linux kernel module. Furthermore, these instructions should also be roughly compatible with other Debian based Linux distribution - so could be followed to perform installation on other such systems.
 	
-
 ### Updating the Pi & Enabling the Camera Module
 
 This article was written while using a Raspberry Pi 1 Model B+ with a Pi NoIR camera module attached (as per the image at the head of the article- with the lovely case provided by a [Grasping Hand](http://www.graspinghand.com)). On to this was performed a clear install of the latest version of Raspbian (wheezy-3.18). 
@@ -37,7 +36,7 @@ The documentation about installing [the camera module](https://www.raspberrypi.o
 
 N.B. If you want this to happen every time you boot the system - add an entry to the `/etc/modules` file with:
 
-echo "bcm2835-v4l2" | sudo tee -a /etc/modules
+	echo "bcm2835-v4l2" | sudo tee -a /etc/modules
 
 Now if you do a `lsmod` after you should see this driver loaded alongside the supporting v4l modules. e.g. the top module listed here:
 
@@ -142,7 +141,7 @@ By default, the `vx_cam_test` tool only processes 10 frames before quiting. You 
 
 ### Prepare to Build
 
-Now we ready to buid and install the OpenVX libraries along with the `vx_cam_test` tool to run our Sobel graph example.
+Now we ready to build and install the OpenVX libraries along with the `vx_cam_test` tool to run our Sobel graph example.
 
 Start by making sure your Pi's build commands and utilities are up-to-date.  The latest version of Raspbian has git-core, gcc, and build-essential packages already installed by default. 
 
@@ -246,13 +245,7 @@ Sadly, at this early stage, the OpenVX sample implementation doesn't offer up an
 
 However, that doesn't mean the Pi can't exploit it's own hardware to provide a faster implementation.
 
-One trick to achieving this is to shift the processing to the GPU, by using OpenGL shaders to instead perform the calculations required. This has [already been proven][http://robotblogging.blogspot.co.uk/2013/10/gpu-accelerated-camera-processing-on.html) and indeed is widely exploited in other accelerated image processing libraries [on other platforms](https://github.com/BradLarson/GPUImage) (which are also recently available to the Pi).
+One trick to achieving this is to shift the processing to the GPU, by using OpenGL shaders to instead perform the calculations required. This has [already been proven](http://robotblogging.blogspot.co.uk/2013/10/gpu-accelerated-camera-processing-on.html) and indeed is widely exploited in other accelerated image processing libraries [on other platforms](https://github.com/BradLarson/GPUImage) (which are also recently available to the Pi).
 
-Doing this, and so increasing the real-time processing capability of the Pi, and would open up a world of possibilities - imagine an [existing drone controller](http://www.emlid.com) combined with additional visual information, or other [drone/robotics platforms](https://www.kickstarter.com/projects/ziphius/ziphius-the-aquatic-drone) able to make sense of their world autonomously. Maybe even [spot your neighbours cat more effectively](http://norris.org.au/cattack/">spot your neighbours cat more effectively).
+Doing this, and so increasing the real-time processing capability of the Pi, and would open up a world of possibilities - imagine an [existing drone controller](http://www.emlid.com) combined with additional visual information, or other [drone/robotics platforms](https://www.kickstarter.com/projects/ziphius/ziphius-the-aquatic-drone) able to make sense of their world autonomously. Maybe even [spot your neighbours cat more effectively](http://norris.org.au/cattack/)spot your neighbours cat more effectively).
 
-<p><b>To this end - Machines With Vision are contemplating implementing a backend target OpenVX implementation for the Raspberry Pi. If this is something you feel would be useful, please <a href="/index.html#Contact">contact us</a></b>.
-
-</div>
-</div>
-</div>
-</section>
