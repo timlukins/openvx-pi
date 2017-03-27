@@ -19,7 +19,6 @@ For simplicity, we give instructions for compiling the OpenVX sample implementat
 The article assumes a basic familiarity with the Raspberry Pi command line and general operation, and it will help to understand programming `C` a bit. Plus, we are basing this on the assumption the reader has purchased and connected an official Raspberry Pi camera module. Using an alternative camera is possible - but will require locating and using an appropriate Video for Linux kernel module. Furthermore, these instructions should also be roughly compatible with other Debian based Linux distribution - so could be followed to perform installation on other such systems.
 	
 ### Updating the Pi and Enabling the Camera Module
-
 This article was written while using a Raspberry Pi 1 Model B+ with a Pi NoIR camera module attached (as per the image at the head of the article- with the lovely case provided by a [Grasping Hand](http://www.graspinghand.com)). On to this was performed a clear install of the latest version of Raspbian (wheezy-3.18). 
 
 If you want a small reminder on how to install your system onto the SD card look [here](https://www.raspberrypi.org/documentation/installation/installing-images/). Following a clean install you will also need to update and configure it, for which the commands are as follows:
@@ -77,6 +76,7 @@ We want to add our own definition of a OpenVX graph to this code that will demon
 
 Having unpacked the sample implementation,`cd` into the directory `openvx_sample` and locate the file `./sample/tests/vx_cam_test.c`. Copy/define this new function in the file:
 
+```c
 	vx_graph vxSobelGraph(vx_context context, 
 			      vx_image input, 
 			      vx_threshold thresh,
@@ -115,6 +115,7 @@ Having unpacked the sample implementation,`cd` into the directory `openvx_sample
 	  }
 	  return graph;
 	}
+```
 
 This is one of the fundamental way to write an OpenVX application. Briefly: the concept is that we set-up a **graph** of connected **nodes** representing atomic operations performed on image data. These are connected internally by specifying virtual images of the correct type between nodes, and externally by adding parameters to allow the data of certain nodes to accessed. The great advantage of using graphs is that OpenVX can optimise and distribute the graph operations to available hardware "under the bonnet" so that the programmer doesn't have to. 
 
